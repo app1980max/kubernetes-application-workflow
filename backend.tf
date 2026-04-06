@@ -14,6 +14,3 @@ terraform {
   }
 }
 
-
-
-endpoint = "http://office-minio.leadercapital.net:9000"
