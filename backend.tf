@@ -12,3 +12,4 @@ terraform {
     force_path_style            = true
   }
 }
+
