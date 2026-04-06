@@ -15,7 +15,7 @@ variable "image" {
 
 variable "replicas" {
   type    = number
-  default = 1
+  default = 2
 }
 
 variable "container_port" {
