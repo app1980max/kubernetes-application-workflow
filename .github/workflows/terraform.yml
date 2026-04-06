@@ -20,7 +20,9 @@ jobs:
 
     env:
       TF_VERSION: 1.10.4  # Set your Terraform version
-
+      AWS_ACCESS_KEY_ID: ${{ secrets.MINIO_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.MINIO_SECRET_KEY }}
+      
     steps:
       # 1️⃣ Checkout repo
       - name: Checkout repository
@@ -41,7 +43,8 @@ jobs:
 
       # 4️⃣ Terraform Init
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init -input=false \
+          -backend-config="endpoint=${{ secrets.MINIO_ENDPOINT }}"
 
       # 5️⃣ Terraform Format Check (optional)
       - name: Terraform fmt
@@ -50,9 +53,6 @@ jobs:
       # 6️⃣ Terraform Validate
       - name: Terraform Validate
         run: terraform validate
-
-      - name: Import existing namespace if present
-        run: terraform import kubernetes_namespace.n8n n8n || echo "Namespace n8n already managed"
         
       # 7️⃣ Terraform Plan
       - name: Terraform Plan
