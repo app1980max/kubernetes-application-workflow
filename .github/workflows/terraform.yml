@@ -33,7 +33,7 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
-      # 3️⃣ Configure Kubeconfig (if deploying to Kubernetes)
+      # 3️⃣ Configure Kubeconfig
       - name: Setup Kubeconfig
         run: |
           mkdir -p $HOME/.kube
