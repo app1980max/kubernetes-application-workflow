@@ -51,9 +51,8 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-       - name: Import existing namespace if present
-         run: |
-        terraform import kubernetes_namespace.n8n n8n || echo "Namespace n8n already managed"
+      - name: Import existing namespace if present
+        run: terraform import kubernetes_namespace.n8n n8n || echo "Namespace n8n already managed"
         
       # 7️⃣ Terraform Plan
       - name: Terraform Plan
