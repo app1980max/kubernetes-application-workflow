@@ -18,10 +18,4 @@ terraform {
   }
 }
 
-# AWS provider block (optional, only if you need AWS resources)
-# Skip all AWS API calls for backend validation
-provider "aws" {
-  region                     = "us-west-rack-2"
-  skip_requesting_account_id  = true
-  skip_credentials_validation = true
-}
+
