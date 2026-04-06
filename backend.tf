@@ -24,3 +24,5 @@ provider "aws" {
   skip_requesting_account_id  = true  # Prevent Terraform from calling STS
   skip_credentials_validation = true  # Prevent IAM validation
 }
+
+
