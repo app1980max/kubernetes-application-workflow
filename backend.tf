@@ -1,3 +1,10 @@
+provider "aws" {
+  region = "us-west-rack-2"
+
+  # Prevent Terraform from calling STS/IAM
+  skip_requesting_account_id  = true
+  skip_credentials_validation = true
+}
 
 terraform {
   backend "s3" {
