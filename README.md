@@ -2,7 +2,7 @@
 
 
 ## Multi-Application-Workflow | Kubernetes
-GitOps-style Terraform CI/CD workflow with GitHub Actions, multiple environments, and remote state backends. Here’s a breakdown and what it means for your setup:
+Kubernetes application workflow project that appears to be focused on orchestrating deployments and infrastructure automation in a Kubernetes‑centric environment using GitOps principles along with Terraform and GitHub Actions.
 
 
 🚀  Overview
