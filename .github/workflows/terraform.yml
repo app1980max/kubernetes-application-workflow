@@ -43,8 +43,11 @@ jobs:
 
       # 4️⃣ Terraform Init
       - name: Terraform Init
-        run: terraform init -input=false \
-          -backend-config="endpoint=${{ secrets.MINIO_ENDPOINT }}"
+        run: |
+          terraform init -input=false \
+           -backend-config="endpoint=${{ secrets.MINIO_ENDPOINT }}" \
+           -backend-config="access_key=${{ secrets.MINIO_ACCESS_KEY }}" \
+           -backend-config="secret_key=${{ secrets.MINIO_SECRET_KEY }}"
 
       # 5️⃣ Terraform Format Check (optional)
       - name: Terraform fmt
