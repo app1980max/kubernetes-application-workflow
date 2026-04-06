@@ -1,4 +1,3 @@
-
 terraform {
   backend "s3" {
     bucket = "vclusters"
@@ -16,5 +15,13 @@ terraform {
     skip_region_validation      = true
     force_path_style            = true
   }
+}
+
+# Optional: AWS provider block (only if you need it for resources)
+# Avoid Terraform calling AWS STS/IAM for backend
+provider "aws" {
+  region                     = "us-west-rack-2"
+  skip_requesting_account_id  = true
+  skip_credentials_validation = true
 }
 
