@@ -2,7 +2,7 @@
 variable "name" {
   description = "The name of the service/ingress"
   type        = string
-  default     = "ingress-route-app"
+  default     = "httpd-server"
 }
 
 variable "namespace" {
