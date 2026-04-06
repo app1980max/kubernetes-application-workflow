@@ -12,7 +12,7 @@ module "httpd" {
   service_type = "ClusterIP"
 }
 
-module "flowise" {
-  source = "./modules/flowise"
+module "ingress" {
+  source = "./modules/ingress"
   depends_on = [module.httpd]
 }
