@@ -5,7 +5,7 @@ terraform {
     key    = "vcluster-dev2/terraform.tfstate"
     region = "us-west-rack-2"
 
-    # Correct object syntax for endpoints
+    # Endpoints object (Terraform 1.10+)
     endpoints = {
       s3 = "https://s3-dev.appflex.io"
     }
@@ -14,13 +14,15 @@ terraform {
     skip_credentials_validation = true
     skip_metadata_api_check     = true
     skip_region_validation      = true
-    force_path_style            = true
+    use_path_style              = true  # updated from deprecated force_path_style
   }
 }
 
-# Optional AWS provider (only if you manage AWS resources)
+# Optional AWS provider (only if you have AWS resources)
 provider "aws" {
   region                     = "us-west-rack-2"
+
+  # Prevent Terraform from calling AWS STS/IAM for MinIO backend
   skip_requesting_account_id  = true
   skip_credentials_validation = true
 }
