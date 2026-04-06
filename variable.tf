@@ -12,4 +12,3 @@ variable "charts_path" {
 
 
 
-
