@@ -22,3 +22,8 @@ provider "helm" {
   }
 }
 
+provider "aws" {
+  region                     = "us-west-rack-2"
+  skip_requesting_account_id  = true
+  skip_credentials_validation = true
+}
