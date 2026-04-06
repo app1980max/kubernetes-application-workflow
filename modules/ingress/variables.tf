@@ -2,6 +2,7 @@
 variable "host" {
   description = "Domain name for ingress (e.g. app.example.com)"
   type        = string
+  default     = "app-cluster2.appflex.io"
 }
 
 variable "ingress_class_name" {
@@ -10,19 +11,4 @@ variable "ingress_class_name" {
   default     = "nginx"
 }
 
-variable "email" {
-  description = "Email for Let's Encrypt registration"
-  type        = string
-}
 
-variable "cluster_issuer_name" {
-  description = "cert-manager ClusterIssuer name"
-  type        = string
-  default     = "letsencrypt-prod"
-}
-
-variable "acme_server" {
-  description = "ACME server URL (staging or production)"
-  type        = string
-  default     = "https://acme-v02.api.letsencrypt.org/directory"
-}
