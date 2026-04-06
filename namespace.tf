@@ -12,4 +12,3 @@ resource "kubernetes_namespace" "n8n" {
     ignore_changes = all
   }
 }
-
