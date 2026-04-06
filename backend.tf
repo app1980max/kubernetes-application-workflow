@@ -5,7 +5,7 @@ terraform {
     key    = "vcluster-dev2/terraform.tfstate"
     region = "us-west-rack-2"
 
-    # Use new syntax instead of deprecated 'endpoint'
+    # Use new recommended syntax for MinIO endpoint
     endpoints {
       s3 = "https://s3-dev.appflex.io"
     }
@@ -18,4 +18,9 @@ terraform {
   }
 }
 
-
+# Optional AWS provider (only if you manage AWS resources elsewhere)
+provider "aws" {
+  region                     = "us-west-rack-2"
+  skip_requesting_account_id  = true  # Prevent Terraform from calling STS
+  skip_credentials_validation = true  # Prevent IAM validation
+}
