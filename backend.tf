@@ -1,11 +1,14 @@
+
 terraform {
   backend "s3" {
     bucket = "vclusters"
     key    = "vcluster-dev2/terraform.tfstate"
     region = "us-west-rack-2"
 
-    # Use single-line endpoints argument
-    endpoints = "https://s3-dev.appflex.io"
+    # Correct object syntax for endpoints
+    endpoints = {
+      s3 = "https://s3-dev.appflex.io"
+    }
 
     # MinIO-specific flags
     skip_credentials_validation = true
@@ -18,6 +21,6 @@ terraform {
 # Optional AWS provider (only if you manage AWS resources)
 provider "aws" {
   region                     = "us-west-rack-2"
-  skip_requesting_account_id  = true  # Prevent Terraform from calling STS
-  skip_credentials_validation = true  # Prevent IAM validation
+  skip_requesting_account_id  = true
+  skip_credentials_validation = true
 }
