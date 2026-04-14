@@ -1,11 +1,12 @@
-
 terraform {
   backend "s3" {
     bucket = "vclusters"
     key    = "vcluster-dev2/terraform.tfstate"
     region = "us-east-1"
 
-    endpoint = "https://s3-api.appflex.io"
+    endpoints = {
+      s3 = "https://s3-api.appflex.io"
+    }
 
     force_path_style = true
 
@@ -14,7 +15,7 @@ terraform {
     skip_region_validation      = true
     skip_requesting_account_id  = true
 
-    # 🔥 CRITICAL FIX FOR SIGNATURE MISMATCH
+    # 🔥 IMPORTANT FOR MINIO + TERRAFORM
     skip_s3_checksum = true
   }
 }
