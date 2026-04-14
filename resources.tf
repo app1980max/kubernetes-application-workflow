@@ -16,6 +16,3 @@ module "ingress" {
   source = "./modules/ingress"
   depends_on = [module.httpd]
 }
-
-
-
