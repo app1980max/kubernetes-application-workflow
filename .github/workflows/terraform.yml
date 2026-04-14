@@ -61,7 +61,7 @@ jobs:
           
       # 4️⃣ Terraform Init (MinIO backend)
       - name: Terraform Init
-        run: terraform init -input=false
+        run: terraform init -reconfigure -upgrade -input=false
 
       # 5️⃣ Terraform Format Check
       - name: Terraform fmt
