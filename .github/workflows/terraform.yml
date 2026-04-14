@@ -47,6 +47,11 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
 
+      - name: Clean Terraform cache
+        run: |
+          rm -rf .terraform
+          rm -f .terraform.lock.hcl
+          
       # 4️⃣ Terraform Init (MinIO backend)
       - name: Terraform Init
         run: terraform init -input=false
