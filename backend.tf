@@ -5,17 +5,17 @@ terraform {
     key    = "vcluster-dev2/terraform.tfstate"
     region = "us-east-1"
 
-    endpoints = {
-      s3 = "https://s3-api.appflex.io"
-    }
+    endpoint = "https://s3-api.appflex.io"
 
-    use_path_style = true
+    force_path_style = true
 
     skip_credentials_validation = true
     skip_metadata_api_check     = true
     skip_region_validation      = true
     skip_requesting_account_id  = true
+
+    # 🔥 CRITICAL FIX FOR SIGNATURE MISMATCH
+    skip_s3_checksum = true
   }
 }
-
 
