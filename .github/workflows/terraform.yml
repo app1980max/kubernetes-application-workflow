@@ -45,15 +45,16 @@ jobs:
           echo "AWS_DEFAULT_REGION=us-east-1" >> $GITHUB_ENV
           echo "AWS_EC2_METADATA_DISABLED=true" >> $GITHUB_ENV
           echo "AWS_S3_FORCE_PATH_STYLE=true" >> $GITHUB_ENV
+          echo "AWS_S3_CHECKSUM=false" >> $GITHUB_ENV
           
-
       # 3️⃣ Configure Kubeconfig
       - name: Setup Kubeconfig
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG }}" > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
-
+          
+      # 3️⃣ Clean Terraform cache
       - name: Clean Terraform cache
         run: |
           rm -rf .terraform
