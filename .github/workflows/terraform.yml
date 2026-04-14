@@ -19,8 +19,15 @@ jobs:
 
     env:
       TF_VERSION: 1.10.4
+
+      # 🔐 MinIO credentials (from GitHub Secrets)
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_EC2_METADATA_DISABLED: "true"
+
+      # 🔥 IMPORTANT for MinIO compatibility
+      AWS_S3_FORCE_PATH_STYLE: "true"
 
     steps:
       # 1️⃣ Checkout repository
